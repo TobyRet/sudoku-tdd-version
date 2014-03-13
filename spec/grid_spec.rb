@@ -28,8 +28,12 @@ describe Grid do
   context "neighbouring cells" do
 
     it "should know who a cell's row neighbours are" do
-      row1 = [0,1,0,0,3,0,0,2]
-      expect(grid.row_neighbours(2)).to eq(row1)
+      row_0 = [0,1,0,0,3,0,0,2]
+      row_1 = [0,0,0,1,0,9,0,6]
+      row_8 = [0,3,7,2,0,4,6,0]
+      expect(grid.row_neighbours(2)).to eq(row_0)
+      expect(grid.row_neighbours(13)).to eq(row_1)
+      expect(grid.row_neighbours(79)).to eq(row_8)
     end
 
   end
