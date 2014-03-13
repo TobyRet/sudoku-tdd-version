@@ -4,6 +4,7 @@ class Grid
 
   def initialize(puzzle)
     @cells = puzzle.chars.map { |s| s.to_i }
+    puts @cells.inspect
   end 
 
   def solved?(cell_number)
