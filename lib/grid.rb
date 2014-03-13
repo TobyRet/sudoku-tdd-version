@@ -4,10 +4,14 @@ class Grid
 
   def initialize(puzzle)
     @cells = puzzle.chars.map { |s| s.to_i }
-    puts @cells.inspect
   end 
 
-  def solved?(cell_number)
+  def cell_solved?(cell_number)
     @cells[cell_number - 1] == 0 ? false : true
   end
+
+  def all_cells_solved?
+    @cells.all? { |cell| cell != 0 }
+  end
+
 end
