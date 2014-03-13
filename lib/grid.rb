@@ -18,14 +18,14 @@ class Grid
   # def solve; end
 
    def row_neighbours(cell_index)
-    row = cell_index / 9
-    a = (0 + (row * 9)) # defines startpoint for row
-    b = (8 + (row * 9)) # defines end point for row
-    result = []
-    result << cells[a..b] 
-    result.flatten!
-    result.delete_at(cell_index - (row * 9))
-    result
+    row_index = cell_index / 9
+    a = row_index * 9 # defines startpoint for a row
+    b =  a + 8  # defines end point for a row
+    neighbours = []
+    neighbours << cells[a..b] 
+    neighbours.flatten!
+    neighbours.delete_at(cell_index - a)
+    neighbours
   end
 
 end
