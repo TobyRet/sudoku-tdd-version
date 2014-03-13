@@ -14,4 +14,7 @@ class Grid
     @cells.all? { |cell| cell != 0 }
   end
 
+  # Need a solve method at some point
+  # def solve; end
+
 end
