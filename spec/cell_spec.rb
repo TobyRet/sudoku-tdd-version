@@ -23,6 +23,11 @@ describe 'Cell' do
       expect(cell.filled_out?).to eq(false)
     end
 
+    it "should know if it has a solved value" do
+      cell.value = 2
+      expect(cell.filled_out?).to eq(true)
+    end
+
   end
 
 end
