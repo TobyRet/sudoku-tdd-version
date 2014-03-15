@@ -24,15 +24,22 @@ describe Grid do
       expect(grid.all_cells_solved?).to eq(false)
     end
 
-    it "should be able to arrange cells into nine rows" do
+    xit "should be able to arrange cells into nine rows" do
       expect(grid.rows.count).to eq(9)
       expect(grid.rows[0].count).to eq(9)
     end 
+
   end
 
   context "neighbouring cells" do
 
-    it "should know who a cell's row neighbours are" do
+    it "should know return a cell's row neighbours" do 
+      row_neighbours_0 = [0, 1, 0, 0, 3, 0, 0, 2]
+      expect(grid.row_neighbours(2)).to eq(row_neighbours_0)
+    end
+
+
+    xit "should know who a cell's row neighbours are" do
       row_neighbours_0 = [0,1,0,0,3,0,0,2]
       row_neighbours_1 = [0,0,0,1,0,9,0,6]
       row_neighbours_8 = [0,3,7,2,0,4,6,0]
