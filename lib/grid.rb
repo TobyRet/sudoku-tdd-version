@@ -21,9 +21,18 @@ class Grid
   def row_neighbours(cell_index)
     rows = @cells.each_slice(9).to_a 
     row_index = cell_index / 9 
-    @row_cells = rows[row_index]
-    @row_cells.delete_at(cell_index % 9)
-    @row_cells
+    row_cells = rows[row_index]
+    row_cells.delete_at(cell_index % 9)
+    row_cells
+  end
+
+  def column_neighbours(cell_index)
+    rows = @cells.each_slice(9).to_a 
+    columns = rows.transpose
+    column_index = cell_index / 9 
+    column_cells = columns[column_index]
+    column_cells.delete_at(cell_index % 9)
+    column_cells
   end
 
   # Need a solve method at some point
