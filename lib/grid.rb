@@ -1,6 +1,6 @@
 class Grid
 
-  attr_accessor :cells, :row_cells, :column_cells
+  attr_accessor :cells
 
   def initialize(puzzle)
     @cells = puzzle.chars.map { |s| s.to_i }
@@ -23,9 +23,14 @@ class Grid
   end
 
   def boxes
-    box_index = [0,3,6,27,30,33,54,57,60]
-    boxes_cells = []
-    box_index.each { |index| boxes_cells << [index, index + 1, index + 2, index + 9, index + 10, index + 11, index + 18, index + 19, index + 20]}
+    box_first_index = [0,3,6,27,30,33,54,57,60]
+    box_indexes = []
+    box_first_index.each { |index| box_indexes << [index, index + 1, index + 2, index + 9, index + 10, index + 11, index + 18, index + 19, index + 20]}
+    box_indexes.map do |row| 
+      row.map do |index|
+        index = cells[index] 
+      end
+    end
   end
 
   # Need a solve method at some point

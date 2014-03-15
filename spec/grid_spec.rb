@@ -37,8 +37,9 @@ describe Grid do
     end
 
     it "should organise cells into boxes" do
+      box_0 = [0, 1, 5, 0, 0, 0, 2, 7, 0]
+      expect(grid.boxes[0]).to eq(box_0)
       expect(grid.boxes.count).to eq(9)
     end
-
   end
 end
