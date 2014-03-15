@@ -8,11 +8,6 @@ describe Grid do
 
   context "initialization" do
 
-    it "returns an empty board of 9 columns and 9 rows" do
-      expect(grid.empty_board.count).to eq(9)
-      expect(grid.empty_board[0].count).to eq(9)
-    end
-
     it "should have 81 cells" do
       expect(grid.cells.length).to eq(81)
     end
@@ -29,18 +24,21 @@ describe Grid do
       expect(grid.all_cells_solved?).to eq(false)
     end
 
-    
+    it "should be able to arrange cells into nine rows" do
+      expect(grid.rows.count).to eq(9)
+      expect(grid.rows[0].count).to eq(9)
+    end 
   end
 
   context "neighbouring cells" do
 
     it "should know who a cell's row neighbours are" do
-      row_0 = [0,1,0,0,3,0,0,2]
-      row_1 = [0,0,0,1,0,9,0,6]
-      row_8 = [0,3,7,2,0,4,6,0]
-      expect(grid.row_neighbours(2)).to eq(row_0)
-      expect(grid.row_neighbours(13)).to eq(row_1)
-      expect(grid.row_neighbours(79)).to eq(row_8)
+      row_neighbours_0 = [0,1,0,0,3,0,0,2]
+      row_neighbours_1 = [0,0,0,1,0,9,0,6]
+      row_neighbours_8 = [0,3,7,2,0,4,6,0]
+      expect(grid.row_neighbours(2)).to eq(row_neighbours_0)
+      expect(grid.row_neighbours(13)).to eq(row_neighbours_1)
+      expect(grid.row_neighbours(79)).to eq(row_neighbours_8)
     end
 
   end

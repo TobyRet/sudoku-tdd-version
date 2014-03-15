@@ -1,10 +1,9 @@
 class Grid
 
-  attr_accessor :cells, :empty_board
+  attr_accessor :cells, :board
 
   def initialize(puzzle)
     @cells = puzzle.chars.map { |s| s.to_i }
-    @empty_board = Array.new(9) { Array.new(9, "") }
   end 
 
   def cell_solved?(cell_index)
@@ -14,6 +13,11 @@ class Grid
   def all_cells_solved?
     @cells.all? { |cell| cell != 0 }
   end
+
+  def rows
+    @cells.each_slice(9).to_a 
+  end
+
 
   # Need a solve method at some point
   # def solve; end
