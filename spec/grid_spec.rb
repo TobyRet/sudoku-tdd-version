@@ -8,6 +8,11 @@ describe Grid do
 
   context "initialization" do
 
+    it "returns an empty board of 9 columns and 9 rows" do
+      expect(grid.empty_board.count).to eq(9)
+      expect(grid.empty_board[0].count).to eq(9)
+    end
+
     it "should have 81 cells" do
       expect(grid.cells.length).to eq(81)
     end
@@ -24,6 +29,7 @@ describe Grid do
       expect(grid.all_cells_solved?).to eq(false)
     end
 
+    
   end
 
   context "neighbouring cells" do
