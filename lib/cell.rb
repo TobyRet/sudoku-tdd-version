@@ -14,4 +14,7 @@ class Cell
     @value != 0
   end
 
+  # write method with candidates if filled_out? returns false
+  # def candidate; end
+  
 end
