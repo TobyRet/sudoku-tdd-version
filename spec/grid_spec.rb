@@ -28,14 +28,16 @@ describe Grid do
 
   context "neighbouring cells" do
 
-    it "should return a cell's row neighbours" do 
-      row_neighbours_0 = [0,1,0,0,3,0,0,2]
-      expect(grid.row_neighbours(2)).to eq(row_neighbours_0)
+    it "should organise cells into rows" do 
+      expect(grid.rows.count).to eq(9)
     end
 
-    it "should return a cell's column neighbours" do
-      column_neighbours_0 = [0,7,9,0,0,0,6,3]
-      expect(grid.column_neighbours(9)).to eq(column_neighbours_0)
+    it "should organise cells into columns" do
+      expect(grid.columns.count).to eq(9)
+    end
+
+    it "should organise cells into boxes" do
+      expect(grid.boxes.count).to eq(9)
     end
 
   end

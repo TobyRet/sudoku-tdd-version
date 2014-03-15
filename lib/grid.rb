@@ -1,6 +1,6 @@
 class Grid
 
-  attr_accessor :cells, :board
+  attr_accessor :cells, :row_cells, :column_cells
 
   def initialize(puzzle)
     @cells = puzzle.chars.map { |s| s.to_i }
@@ -14,40 +14,34 @@ class Grid
     @cells.all? { |cell| cell != 0 }
   end
 
-  #def rows
-  #  @cells.each_slice(9).to_a 
-  #end
-
-  def row_neighbours(cell_index)
-    rows = @cells.each_slice(9).to_a 
-    row_index = cell_index / 9 
-    row_cells = rows[row_index]
-    row_cells.delete_at(cell_index % 9)
-    row_cells
+  def rows
+    row_cells = @cells.each_slice(9).to_a 
   end
 
-  def column_neighbours(cell_index)
-    rows = @cells.each_slice(9).to_a 
-    columns = rows.transpose
-    column_index = cell_index / 9 
-    column_cells = columns[column_index]
-    column_cells.delete_at(cell_index % 9)
-    column_cells
+  def columns
+    column_cells = rows.transpose
+  end
+
+  def boxes
+    box_index = [0,3,6,27,30,33,54,57,60]
+    boxes_cells = []
+    box_index.each { |index| boxes_cells << [index, index + 1, index + 2, index + 9, index + 10, index + 11, index + 18, index + 19, index + 20]}
   end
 
   # Need a solve method at some point
   # def solve; end
 
-  #def row_neighbours(cell_index) 
-  # row_index = cell_index / 9
-  # a = row_index * 9 # defines startpoint for a row
-  # b =  a + 8  # defines end point for a row
-  # neighbours = []
-  # neighbours << @cells[a..b] 
-  # neighbours.flatten!
-  # neighbours.delete_at(cell_index - a)
-  # neighbours
-  #end
+  # calculate position rows
+    #row_index = cell_index / 9 
+    #row_cells = rows[row_index]
+    #row_cells.delete_at(cell_index % 9)
+    #row_cells
 
+  # calculate position columns
+    #column_index = cell_index / 9 
+    #column_cells = columns[column_index]
+    #column_cells.delete_at(cell_index % 9)
+    #column_cells
+#
 end
 
