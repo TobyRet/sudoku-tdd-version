@@ -37,20 +37,5 @@ class Grid
     neighbour_list = [self.rows[cell_index], self.columns[cell_index], self.boxes[cell_index]].flatten
   end
 
-  # Need a solve method at some point
-  # def solve; end
-
-  # calculate position rows
-    #row_index = cell_index / 9 
-    #row_cells = rows[row_index]
-    #row_cells.delete_at(cell_index % 9)
-    #row_cells
-
-  # calculate position columns
-    #column_index = cell_index / 9 
-    #column_cells = columns[column_index]
-    #column_cells.delete_at(cell_index % 9)
-    #column_cells
-#
 end
 
