@@ -15,7 +15,8 @@ class Cell
   end
 
   def options(neighbours)
-    (1..9).to_a - neighbours
+    cell_options = (1..9).to_a - neighbours
+    @value = cell_options if cell_options.count == 1
   end
   
 end

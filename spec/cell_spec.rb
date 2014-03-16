@@ -34,6 +34,7 @@ describe 'Cell' do
     it "should identify options for cell" do
       neighbours = grid.neighbours(0) # => [0, 1, 5, 0, 0, 3, 0, 0, 2, 0, 0, 2, 4, 5, 0, 9, 8, 0, 0, 1, 5, 0, 0, 0, 2, 7, 0]
       expect(cell.options(neighbours)).to eq([6])
+      expect(cell.value).to eq([6])
     end
 
   end
