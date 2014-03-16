@@ -2,7 +2,7 @@ class Cell
 
   attr_accessor :value
 
-  def initalize 
+  def initalize
     @value = nil
   end
 
@@ -14,7 +14,8 @@ class Cell
     @value != 0
   end
 
-  # write method with candidates if filled_out? returns false
-  # def candidate; end
+  def options(neighbours)
+    (1..9).to_a - neighbours
+  end
   
 end
