@@ -42,13 +42,25 @@ describe Grid do
 
     it "should organise cells into boxes" do
       box_0 = [0, 1, 5, 0, 0, 0, 2, 7, 0]
+      box_4 = [0, 0, 2, 0, 4, 0, 9, 0, 5]
       expect(grid.boxes[0]).to eq(box_0)
-      expect(grid.boxes.count).to eq(9)
+      expect(grid.boxes[4]).to eq(box_4)
     end
 
     it "should be able to list all neighbours for a cell" do
       neighbours_0 = [0, 1, 5, 0, 0, 3, 0, 0, 2, 0, 0, 2, 4, 5, 0, 9, 8, 0, 0, 1, 5, 0, 0, 0, 2, 7, 0]
+      neighbours_30 = [4, 9, 0, 0, 0, 2, 0, 1, 7, 0, 1, 0, 0, 0, 9, 0, 0, 2, 0, 0, 2, 0, 4, 0, 9, 0, 5]
       expect(grid.neighbours(0)).to eq(neighbours_0)
-    end    
+      expect(grid.neighbours(30)).to eq(neighbours_30)
+    end
+        
   end
+
+  #context "when solving"
+
+    #it "should ask each cell to solve itself" do
+      #expect(grid.try_to_solve) ##### ?????
+    #end
+
+  #end
 end

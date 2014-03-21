@@ -2,13 +2,13 @@ class Cell
 
   attr_accessor :value, :neighbours
 
-  def initialize(cell_index, neighbours)
-    @value = cell_index
+  def initialize(cell_value, neighbours)
+    @value = cell_value
     @neighbours = neighbours
   end
 
   def unsolved?
-    @value == 0
+    @value == 0 || @value.is_a?(Array)
   end
 
   def filled_out?
@@ -16,11 +16,16 @@ class Cell
   end
 
   def options
-    @cell_options = (1..9).to_a - @neighbours
+    cell_options = (1..9).to_a - @neighbours
+    return cell_options.flatten if cell_options.length == 1
   end
 
   def solve
-    @value = self.options if self.unsolved?
+    if self.unsolved?
+      @value = options 
+    else
+      @value = 0
+    end
   end
   
 end
