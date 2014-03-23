@@ -8,7 +8,7 @@ class Cell
   end
 
   def unsolved?
-    @value == 0 || @value.is_a?(Array)
+    @value == 0 
   end
 
   def filled_out?
@@ -16,16 +16,11 @@ class Cell
   end
 
   def options
-    cell_options = (1..9).to_a - @neighbours
-    return cell_options.flatten if cell_options.length == 1
+    (1..9).to_a - @neighbours
   end
 
   def solve
-    if self.unsolved?
-      @value = options 
-    else
-      @value = 0
-    end
+    @value = options.first if unsolved? && options.count == 1
   end
   
 end

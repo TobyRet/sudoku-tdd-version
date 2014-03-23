@@ -15,8 +15,7 @@ describe 'Cell' do
     end
 
     it "can have a status of unsolved" do
-      cell.value = [2,3]
-      expect(cell.unsolved?).to eq(true)
+      cell.value = 0
       expect(cell.unsolved?).to eq(true)
     end
 

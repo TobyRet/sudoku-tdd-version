@@ -56,11 +56,12 @@ describe Grid do
         
   end
 
-  #context "when solving"
+  context "when solving" do
 
-    #it "should ask each cell to solve itself" do
-      #expect(grid.try_to_solve) ##### ?????
-    #end
+    xit "solve the puzzle" do
+      grid.try_to_solve
+      expect(@cells.include?(0)).to_not be_true
+    end
 
-  #end
+  end
 end

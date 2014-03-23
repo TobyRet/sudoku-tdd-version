@@ -30,44 +30,31 @@ class Grid
     box_indexes.map { |box| box.map {|index| cells[index]} }    
   end
 
-  def neighbours(cell_index)
-    p self.boxes[cell_index / 9]  
+  def neighbours(cell_index) 
     row = cell_index / 9
     column = cell_index % 9
     box = (3 * (row / 3)) + (column / 3)
-
     self.rows[row] + self.columns[column] + self.boxes[box]   
   end
 
-  #def solve
-  #  outstanding_before, looping = SIZE, false
-  #  while !all_cells_solved? && !looping
-  #    try_to_solve # ask each cell to solve itself
-  #    outstanding = @cells.count {|c| c.all_cells_solved? }
-  #    looping = outstanding_before == outstanding       
-  #    outstanding_before = outstanding     
-  #  end 
-  #end
+  def solve
+    outstanding_before, looping = SIZE, false
+    while !all_cells_solved? && !looping
+      try_to_solve # ask each cell to solve itself
+      outstanding = @cells.count {|c| c.all_cells_solved? }
+      looping = outstanding_before == outstanding       
+      outstanding_before = outstanding     
+    end 
+  end
 
-  #def try_to_solve
-  #  #### this works #######
-  #  cell_neighbours = self.neighbours(36)
-  #  cell = Cell.new(@cells[36], cell_neighbours)
-  #  puts cell.options
-  #  puts cell.solve
-  #  puts cell.value
-  # 
-#
-  #  #@cells.each_with_index do |cell_value, cell_index|
-  #  #  cell_neighbours = self.neighbours(cell_index)
-  #  #  cell = Cell.new(cell_value, cell_neighbours)
-  #  #  p cell.solve
-  #  #  if cell.unsolved? 
-  #  #   @cells[cell_index] = cell.value
-  #  #  end
-  #  #end
-  #  #@cells
-  #end
+  def try_to_solve
+    @cells.each_with_index do |cell_value, cell_index|
+      cell_neighbours = self.neighbours(cell_index)
+      cell = Cell.new(cell_value, cell_neighbours)
+      cell.solve
+    end
+    @cells
+  end
 
 end
 
